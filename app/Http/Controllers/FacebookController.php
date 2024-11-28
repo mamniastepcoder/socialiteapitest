@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
@@ -10,7 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class FacebookController extends Controller
 {
-    
     public function index()
     {
         return view('facebook_post');
@@ -23,8 +20,7 @@ class FacebookController extends Controller
     {
         try {
             $facebookUser = Socialite::driver('facebook')->user();
-            
-             $user = User::where('facebook_id', $facebookUser->getId())->first();
+            $user = User::where('facebook_id', $facebookUser->getId())->first();
              if (!$user) {
                 $user = User::create([
                     'name' => $facebookUser->getName(),
