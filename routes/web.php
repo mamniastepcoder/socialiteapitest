@@ -11,11 +11,9 @@ Route::get('/', function () {
 });
 
 Route::get('page', [FacebookController::class, 'index'])->name('login');
-
 Route::get('login/facebook', [FacebookController::class, 'redirectToFacebook']);
 Route::get('login/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::post('/logout', [HomeController::class, 'logout'])->name('logout');
 Route::get('login/google', [GoogleController::class, 'redirectTogoogle']);
 Route::get('login/google/callback', [GoogleController::class, 'handlegoogleCallback']);
